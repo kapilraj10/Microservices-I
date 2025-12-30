@@ -11,21 +11,23 @@ import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 
 import lombok.Data;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
 
 @Entity
 @Table(name = "users")
 @Data
 public class User {
     @Id
-    @Column(name = "id", nullable = false, updatable = false)
     private String id;
-
+    @Column(unique = true)
     private String email;
+    @Column(nullable = false)
     private String password;
     private String firstName;
     private String lastName;
+    @Enumerated(EnumType.STRING)
     private UserRole role = UserRole.USER;
-
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
