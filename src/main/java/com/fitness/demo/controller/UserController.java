@@ -3,6 +3,7 @@ package com.fitness.demo.controller;
 import com.fitness.demo.dto.RegisterRequest;
 import com.fitness.demo.dto.UserResponse;
 import com.fitness.demo.service.UserService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ public class UserController {
 
 
     @PostMapping("/register")
-    public ResponseEntity<UserResponse> register (@RequestBody RegisterRequest request)
+    public ResponseEntity<UserResponse> register (@Valid @RequestBody RegisterRequest request)
     {
         return ResponseEntity.ok(userService.register(request));
     }
