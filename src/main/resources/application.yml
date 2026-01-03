@@ -7,6 +7,10 @@ spring:
     username: postgres
     password: MySQL@123
 
+eureka:
+  client:
+    defaultZone: http://localhost:8761/eureka/
+
   jpa:
     hibernate:
       ddl-auto: update
